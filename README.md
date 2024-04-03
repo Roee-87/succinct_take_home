@@ -39,21 +39,23 @@ $$ x^{2} + x + 5 $$
 ```Rust
 let mut builder = Builder::new();
 let x = builder.init();
-let seven = builder.constant(7);
-let x_plus_seven = builder.add(x, seven);
-let sqrt_x_plus_7 = builder.hint(4, x_plus_seven);
-let computed_sq = builder.mul(sqrt_x_plus_7, sqrt_x_plus_7);
+let x_squared = builder.mul(x, x);
+let five = builder.constant(5);
+let x_squared_plus_5 = builder.add(x_squared, five);
+let y = builder.add(x_squared_plus_5, x);
 ```
 
 `let mut = Builder::new()` initializes a new Builder object.
 
 `let x = bulder.init()` initializes a new variable input node and adds the node to the `builder.graph` vector. the `x` variable is assigned the index value of the new node (in this case it is a usize `0`).
 
-`let seven = builder.constant(7)` adds a constant node with a value of `7u32` to `builder.graph`. `seven` is assigned the index value of the new constant value node ( index value `1`).
+`let five = builder.constant(5);` adds an constant value node whose output `5u32`. The node is added to `builder.graph` with index value `1`.
 
-`let x_plus_seven = builder.add(x, seven)` adds an output node whose output is the sum of `builder.graph[x].output` and `builder.graph[seven].output`.
+`let x_squared_plus_5 = builder.add(x_squared, five)` adds an output node whose output is $$ x^{2} + 5 $$. The node is added to `builder.graph` with index value `2`.
 
-`self.add(x, seven)
+`let y = builder.add(x_squared_plus_5, x)` adds an output node whose output is $$ x^{2} + x + 5 $$. The node is added to `builder.graph` with index value `3`.
+
+The graph is now complete and ready to be filled using an input value for the `x` variable node.
 
 ## Design approach for filling in values for the computational graph.
 
