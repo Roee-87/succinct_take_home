@@ -1,6 +1,6 @@
 # Succinct Code Assessment
 
-The library code can be found in src/lib.rs. I used main.rs to debug and inspect Node and Builder structs.
+The library code can be found in src/lib.rs. I used main.rs to debug and inspect Node and Builder structs. Tests are included in main.rs in the tests module.
 
 ## Design approach for computation graph and nodes
 

@@ -69,7 +69,7 @@ mod tests {
         let c = builder.hint(1, b);
         let eight = builder.constant(8);
         let c_times_8 = builder.mul(c, eight);
-        // We can show that a + 1 / 8 == 1 by showing that c * 8 == b
+        // We can show that (a + 1) / 8 == 1 by showing that c * 8 == b
         builder.fill_nodes(a, 7);
         builder.check_constraints();
         let _ = builder.assert_equal(c, c_times_8);
