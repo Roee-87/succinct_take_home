@@ -122,4 +122,4 @@ runs the test cases for the three scenarios outlined in the assessment document.
 
 ## Notes
 
-The coding task took approximately two hours and the README write up took abou 30 minutes.
+The coding task took approximately two hours and the README write up took about 30 minutes.
