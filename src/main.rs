@@ -8,7 +8,7 @@ struct Builder {
 #[derive(Debug, Copy, Clone)]
 struct Node {
     id: usize,
-    inputs: (Option<usize>, Option<usize>), // (a, b) are indices of the input nodes.
+    inputs: (Option<usize>, Option<usize>), // (a, b) are indices of nodes in the computation graph.
     op: Option<OPERATION>,
     output: Option<u32>,
     hint: Option<usize>,
