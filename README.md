@@ -84,4 +84,42 @@ Constraint checking is preformed using an almost identical approach after a comp
 
 ## Hints
 
-Hint values are added as nodes to the graph vector.
+Hint values are added as nodes to the graph vector. Hint nodes contain an output that cannot be directly computed inside of the computation graph. These nodes link to an output that can be calculated inside of the computational graph. The following example can be used prove we know a value when summed with seven will have a real square root:
+
+$$\sqrt{x + 7}$$
+
+```Rust
+    let mut builder = Builder::new();
+    let x = builder.init();
+    let seven = builder.constant(7);
+    let x_plus_seven = builder.add(x, seven);
+    let sqrt_x_plus_7 = builder.hint(4, x_plus_seven);
+    let computed_sq = builder.mul(sqrt_x_plus_7, sqrt_x_plus_7);
+    builder.fill_nodes(x, 9);
+    let hint_eq = builder.assert_equal(sqrt_x_plus_7, computed_sq);
+    println!("Hint equality holds: {:?}", hint_eq);
+```
+
+The square root of the summed values will equal `4`. Since we cannot directly compute the square root, we compute the square of `4` inside the computational graph and link the output to the sum of `x + 7`. Establishing equivalence between `x+7` and $$ 4^{2} $$ demonstrates that we know a valid value `x` that upholds the constraint.
+
+## Run the code
+
+Running
+
+```bash
+cargo run
+```
+
+runs the main function, which I used for debugging and inspecting the Node and graph structs.
+
+Running
+
+```bash
+cargo test
+```
+
+runs the test cases for the three scenarios outlined in the assessment document
+
+## Notes
+
+The coding task took approximately two hours and the README write up took abou 30 minutes.
