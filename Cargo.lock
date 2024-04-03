@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "succinct"
+name = "my_graph_lib"
 version = "0.1.0"
