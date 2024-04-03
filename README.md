@@ -1,5 +1,7 @@
 # Succinct Code Assessment
 
+All code can be found in src/main.rs
+
 ## Design approach for computation graph and nodes
 
 The computational graph is defined as a vector of nodes.
