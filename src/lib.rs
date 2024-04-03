@@ -114,7 +114,7 @@ impl Builder {
 
         // We then iterate through the graph and fill in the values for the rest of the nodes.
         // We use the `inputs` tuple to obtain the indices of the input nodes.
-        // Input and Constant nodes have a (None, None) tuple for inputs...no match block needed for that case. 
+        // Input and Constant nodes have a (None, None) tuple for inputs...no match block needed for that case.
         for node in 0..self.graph.len() {
             if let (Some(a), Some(b)) = self.graph[node].inputs {
                 let a_val = self.graph[a].output.unwrap();

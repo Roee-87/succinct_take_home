@@ -117,6 +117,4 @@ mod tests {
         builder.check_constraints();
         let _ = builder.assert_equal(sqrt_x_plus_7, computed_sq);
     }
-
-
 }
