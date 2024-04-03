@@ -118,7 +118,7 @@ Running
 cargo test
 ```
 
-runs the test cases for the three scenarios outlined in the assessment document
+runs the test cases for the three scenarios outlined in the assessment document.
 
 ## Notes
 
